@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Exclusive Dreams — Travel Agency Website
 
-## Getting Started
+> Freelance project developed for a client in the travel industry. A high-conversion landing page designed to drive leads from Instagram directly to WhatsApp.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Exclusive Dreams is a luxury travel agency that operates entirely through Instagram and WhatsApp. The client needed a professional web presence to increase credibility and serve as a conversion funnel — visitors land on the page and are guided to close deals via WhatsApp.
+
+The site was built with performance, mobile experience, and conversion in mind.
+
+## Features
+
+- **Hero section** with a strong value proposition and primary CTA
+- **Destinations showcase** — curated national and international packages with direct WhatsApp links per destination
+- **Social proof** — testimonials section to build trust
+- **Instagram integration section** reinforcing the brand's main channel
+- **Sticky floating WhatsApp button** visible on all sections
+- **Fully responsive** — mobile-first design, optimized for Instagram traffic
+
+## Tech Stack
+
+| Technology | Version |
+|---|---|
+| Next.js | 15 (App Router) |
+| React | 19 |
+| TypeScript | 5 |
+| Tailwind CSS | 4 |
+| Vercel | Deployment |
+
+## Design
+
+- **Color palette:** Black (`#0A0A0A`) + Gold (`#C9A84C`) — luxury/premium feel
+- **Typography:** Geist (via `next/font`)
+- **Images:** Optimized with `next/image`
+- No UI libraries — styled entirely with Tailwind CSS
+
+## Project Structure
+
+```
+src/
+  components/
+    Navbar.tsx
+    Hero.tsx
+    Destinations.tsx
+    Testimonials.tsx
+    InstagramSection.tsx
+    Footer.tsx
+    WhatsAppFloat.tsx
+app/
+  page.tsx
+  layout.tsx
+  globals.css
+public/
+  images/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running Locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Deployed on Vercel with automatic deploys on push to `main`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Freelance project — developed and delivered for a client.*
