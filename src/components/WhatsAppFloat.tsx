@@ -1,3 +1,6 @@
+"use client";
+import { trackWhatsApp } from "@/lib/gtag";
+
 const WHATSAPP_NUMBER = "5541987472274";
 const WHATSAPP_MSG = encodeURIComponent(
   "Olá, vim pelo site e quero saber mais sobre as viagens!"
@@ -10,6 +13,7 @@ export default function WhatsAppFloat() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackWhatsApp("botao_flutuante")}
       className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white shadow-lg shadow-green-500/40 hover:shadow-green-400/50 rounded-full transition-all duration-300 group"
       aria-label="Falar no WhatsApp"
     >

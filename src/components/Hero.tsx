@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { trackWhatsApp } from "@/lib/gtag";
 
 const WHATSAPP_NUMBER = "5541987472274";
 const WHATSAPP_MSG = encodeURIComponent("Olá, vim pelo site e quero viajar!");
@@ -24,9 +26,24 @@ export default function Hero() {
 
       {/* Conteúdo central */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto pt-16">
-        <p className="text-yellow-400 font-semibold text-xs uppercase tracking-[0.3em] mb-6">
-          Exclusive Dreams · Agência de Viagens
-        </p>
+        {/* Logo grande centralizada */}
+        <div className="flex justify-center mb-2">
+          <Image
+            src="/images/no_background.png"
+            alt="Exclusive Dreams Agência de Viagens"
+            width={600}
+            height={170}
+            priority
+            className="w-72 sm:w-96 md:w-[520px] h-auto object-contain drop-shadow-[0_0_30px_rgba(234,179,8,0.35)]"
+          />
+        </div>
+
+        {/* Divisor dourado */}
+        <div className="flex items-center gap-4 justify-center mb-8">
+          <div className="h-px w-16 bg-gradient-to-r from-transparent to-yellow-500/70" />
+          <span className="text-yellow-500/70 text-xs tracking-[0.4em] uppercase">Agência de Viagens</span>
+          <div className="h-px w-16 bg-gradient-to-l from-transparent to-yellow-500/70" />
+        </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6">
           Transforme seus{" "}
@@ -45,6 +62,7 @@ export default function Hero() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsApp("hero_quero_viajar")}
             className="inline-flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg shadow-yellow-500/25 hover:shadow-yellow-400/40"
           >
             ✈ Quero viajar agora
@@ -60,7 +78,7 @@ export default function Hero() {
         {/* Estatísticas */}
         <div className="mt-16 flex flex-wrap justify-center gap-8 text-center">
           {[
-            { num: "500+", label: "Viagens realizadas" },
+            { num: "50+", label: "Viagens realizadas " },
             { num: "98%", label: "Clientes satisfeitos" },
             { num: "40+", label: "Destinos exclusivos" },
           ].map((stat) => (

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { trackWhatsApp } from "@/lib/gtag";
 
 // ─── Configuração do WhatsApp ───────────────────────────────────────────────
 const WHATSAPP_NUMBER = "5541987472274";
@@ -13,6 +14,7 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
 const NAV_LINKS = [
   { label: "Destinos", href: "#destinos" },
+  { label: "Cruzeiros", href: "#cruzeiros" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Instagram", href: "#instagram" },
   { label: "Sobre", href: "#sobre" },
@@ -25,13 +27,13 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-yellow-800/30">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* ── Logo ── */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center -ml-2">
           <Image
-            src="/images/Gemini_Generated_Image_yc2w88yc2w88yc2w.png"
+            src="/images/no_background.png"
             alt="Exclusive Dreams Agência de Viagens"
-            width={160}
-            height={48}
-            className="h-12 w-auto object-contain mix-blend-screen"
+            width={240}
+            height={68}
+            className="h-14 w-auto object-contain"
             priority
           />
         </Link>
@@ -56,6 +58,7 @@ export default function Navbar() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsApp("navbar_desktop")}
             className="hidden md:inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-500 text-black px-4 py-2 rounded-full font-bold text-sm transition-colors"
           >
             <WhatsAppIcon />
@@ -89,6 +92,7 @@ export default function Navbar() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsApp("navbar_mobile")}
             className="mt-3 inline-flex items-center justify-center gap-2 bg-yellow-600 text-black px-4 py-3 rounded-full font-bold transition-colors"
           >
             <WhatsAppIcon />

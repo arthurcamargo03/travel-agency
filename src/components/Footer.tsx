@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { trackWhatsApp } from "@/lib/gtag";
 
 const WHATSAPP_NUMBER = "5541987472274";
 const WHATSAPP_MSG = encodeURIComponent(
@@ -21,6 +23,7 @@ export default function Footer() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackWhatsApp("footer_cta_principal")}
           className="inline-flex items-center gap-2 bg-black hover:bg-zinc-800 text-yellow-400 px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg"
         >
           <WhatsAppIcon />
@@ -33,11 +36,11 @@ export default function Footer() {
         {/* Logo e descrição */}
         <div>
           <Image
-            src="/images/Gemini_Generated_Image_yc2w88yc2w88yc2w.png"
+            src="/images/no_background.png"
             alt="Exclusive Dreams Agência de Viagens"
             width={160}
             height={50}
-            className="h-12 w-auto object-contain mb-4 mix-blend-screen"
+            className="h-12 w-auto object-contain mb-4"
           />
           <p className="text-gray-400 text-sm leading-relaxed">
             Transformamos sonhos em experiências inesquecíveis. Viagens exclusivas,
@@ -54,6 +57,7 @@ export default function Footer() {
             {[
               ["Destinos Internacionais", "#destinos"],
               ["Destinos Nacionais", "#destinos"],
+              ["Cruzeiros", "#cruzeiros"],
               ["Depoimentos", "#depoimentos"],
               ["Instagram", "#instagram"],
             ].map(([label, href]) => (
@@ -84,6 +88,7 @@ export default function Footer() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsApp("footer_contato")}
               className="inline-flex items-center gap-2 mt-2 text-green-400 hover:text-green-300 transition-colors"
             >
               <WhatsAppIcon />
