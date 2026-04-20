@@ -1,11 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { trackWhatsApp } from "@/lib/gtag";
 
-// ─── Configuração do WhatsApp ───────────────────────────────────────────────
 const WHATSAPP_NUMBER = "5541987472274";
 const WHATSAPP_MSG = encodeURIComponent(
   "Olá, vim pelo site e quero saber mais sobre as viagens!"
@@ -17,34 +16,51 @@ const NAV_LINKS = [
   { label: "Cruzeiros", href: "#cruzeiros" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Instagram", href: "#instagram" },
-  { label: "Sobre", href: "#sobre" },
+  { label: "Contato", href: "#sobre" },
 ];
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 48);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-yellow-800/30">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        {/* ── Logo ── */}
-        <Link href="/" className="flex items-center -ml-2">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-black/85 backdrop-blur-2xl border-b border-white/[0.07]"
+          : "bg-transparent"
+      }`}
+    >
+      {/* Gold accent line — visible only when scrolled */}
+      {scrolled && (
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a84c]/20 to-transparent" />
+      )}
+
+      <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+        <Link href="/" className="flex items-center">
           <Image
             src="/images/no_background.png"
             alt="Exclusive Dreams Agência de Viagens"
-            width={240}
-            height={68}
-            className="h-14 w-auto object-contain"
+            width={180}
+            height={50}
+            className="h-10 w-auto object-contain"
             priority
           />
         </Link>
 
-        {/* ── Links desktop ── */}
+        {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-gray-300 hover:text-yellow-400 font-medium transition-colors text-sm tracking-wide"
+                className="text-sm text-[#86868b] hover:text-[#f5f5f7] transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -52,21 +68,20 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* ── Direita: botão WhatsApp + hambúrguer ── */}
         <div className="flex items-center gap-3">
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsApp("navbar_desktop")}
-            className="hidden md:inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-500 text-black px-4 py-2 rounded-full font-bold text-sm transition-colors"
+            className="hidden md:inline-flex items-center gap-2 bg-[#c9a84c] hover:bg-[#e8c96a] text-black text-sm font-semibold px-5 py-2 rounded-full transition-all duration-200 shadow-[0_0_20px_rgba(201,168,76,0.2)] hover:shadow-[0_0_30px_rgba(201,168,76,0.35)]"
           >
             <WhatsAppIcon />
             Falar no WhatsApp
           </a>
 
           <button
-            className="md:hidden p-2 text-gray-300 rounded-md hover:bg-white/10 transition-colors"
+            className="md:hidden p-2 text-[#f5f5f7]"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
           >
@@ -75,15 +90,15 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* ── Menu mobile ── */}
+      {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-black border-t border-yellow-800/30 px-4 py-4 flex flex-col gap-1">
+        <div className="md:hidden bg-black/97 backdrop-blur-2xl border-b border-white/[0.07] px-6 py-6 flex flex-col gap-1 anim-menu">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-gray-300 font-medium py-3 px-2 rounded-md hover:bg-yellow-900/30 hover:text-yellow-400 transition-colors"
+              className="text-[#f5f5f7] text-lg py-3.5 border-b border-white/[0.05] last:border-0 hover:text-[#c9a84c] transition-colors duration-200"
             >
               {link.label}
             </a>
@@ -92,8 +107,11 @@ export default function Navbar() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackWhatsApp("navbar_mobile")}
-            className="mt-3 inline-flex items-center justify-center gap-2 bg-yellow-600 text-black px-4 py-3 rounded-full font-bold transition-colors"
+            onClick={() => {
+              trackWhatsApp("navbar_mobile");
+              setIsOpen(false);
+            }}
+            className="mt-5 inline-flex items-center justify-center gap-2 bg-[#c9a84c] hover:bg-[#e8c96a] text-black text-sm font-semibold px-5 py-3.5 rounded-full transition-all duration-200 min-h-[44px]"
           >
             <WhatsAppIcon />
             Falar no WhatsApp
@@ -115,7 +133,7 @@ function WhatsAppIcon() {
 function MenuIcon() {
   return (
     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
     </svg>
   );
 }
@@ -123,7 +141,7 @@ function MenuIcon() {
 function CloseIcon() {
   return (
     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
     </svg>
   );
 }

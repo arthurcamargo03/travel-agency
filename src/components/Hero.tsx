@@ -6,10 +6,15 @@ const WHATSAPP_NUMBER = "5541987472274";
 const WHATSAPP_MSG = encodeURIComponent("Olá, vim pelo site e quero viajar!");
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
+const STATS = [
+  { number: "50+", label: "Viagens realizadas" },
+  { number: "100%", label: "Clientes satisfeitos" },
+  { number: "40+", label: "Destinos exclusivos" },
+];
+
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Imagem de fundo */}
+    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
       <Image
         src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
         alt="Vista panorâmica de montanhas nevadas ao pôr do sol"
@@ -18,83 +23,83 @@ export default function Hero() {
         className="object-cover"
       />
 
-      {/* Gradiente preto sobre a imagem para o esquema dark/gold */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+      {/* Cinematic gradient — dark top, open middle, fades to solid black at bottom */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/15 to-black" />
+      {/* Edge vignette for depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(0,0,0,0.55)_100%)]" />
 
-      {/* Linha dourada decorativa no topo */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent" />
+      {/* Main content */}
+      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto pt-16 pb-36">
 
-      {/* Conteúdo central */}
-      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto pt-16">
-        {/* Logo grande centralizada */}
-        <div className="flex justify-center mb-2">
+        <div className="anim-fade-in delay-1 mb-8">
           <Image
             src="/images/no_background.png"
             alt="Exclusive Dreams Agência de Viagens"
-            width={600}
-            height={170}
+            width={480}
+            height={136}
             priority
-            className="w-72 sm:w-96 md:w-[520px] h-auto object-contain drop-shadow-[0_0_30px_rgba(234,179,8,0.35)]"
+            className="w-64 sm:w-80 md:w-[440px] h-auto object-contain drop-shadow-[0_0_60px_rgba(201,168,76,0.18)]"
           />
         </div>
 
-        {/* Divisor dourado */}
-        <div className="flex items-center gap-4 justify-center mb-8">
-          <div className="h-px w-16 bg-gradient-to-r from-transparent to-yellow-500/70" />
-          <span className="text-yellow-500/70 text-xs tracking-[0.4em] uppercase">Agência de Viagens</span>
-          <div className="h-px w-16 bg-gradient-to-l from-transparent to-yellow-500/70" />
+        <div className="anim-fade-up delay-2 mb-6 flex items-center gap-3">
+          <span className="w-8 h-px bg-[#c9a84c]/50" />
+          <span className="text-[#c9a84c] text-xs font-semibold uppercase tracking-[0.28em]">
+            Agência de Viagens Premium
+          </span>
+          <span className="w-8 h-px bg-[#c9a84c]/50" />
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6">
-          Transforme seus{" "}
-          <span className="text-yellow-400">sonhos</span>{" "}
-          em memórias
+        <h1 className="anim-fade-up delay-3 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-[0.92] mb-6">
+          O mundo está<br />esperando<br />
+          <span className="text-[#c9a84c]">por você.</span>
         </h1>
 
-        <p className="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Pacotes exclusivos para os destinos mais deslumbrantes do mundo.
-          Do planejamento à chegada, cuidamos de cada detalhe por você.
+        <p className="anim-fade-up delay-4 text-[#a1a1a6] text-lg sm:text-xl max-w-lg mx-auto mb-10 leading-relaxed">
+          Viagens exclusivas com atendimento personalizado do início ao fim.
         </p>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="anim-fade-up delay-5 flex flex-col sm:flex-row items-center gap-4">
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsApp("hero_quero_viajar")}
-            className="inline-flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg shadow-yellow-500/25 hover:shadow-yellow-400/40"
+            className="inline-flex items-center gap-2 bg-[#c9a84c] hover:bg-[#e8c96a] text-black text-sm font-semibold px-8 py-3.5 rounded-full transition-all duration-200 shadow-[0_0_40px_rgba(201,168,76,0.35)] hover:shadow-[0_0_60px_rgba(201,168,76,0.55)]"
           >
-            ✈ Quero viajar agora
+            Planejar minha viagem →
           </a>
           <a
             href="#destinos"
-            className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white border border-yellow-500/50 px-8 py-4 rounded-full font-semibold text-lg backdrop-blur-sm transition-all"
+            className="inline-flex items-center gap-2 text-[#f5f5f7]/70 text-sm font-medium hover:text-[#c9a84c] transition-colors duration-200"
           >
-            Ver destinos
+            Ver destinos ↓
           </a>
-        </div>
-
-        {/* Estatísticas */}
-        <div className="mt-16 flex flex-wrap justify-center gap-8 text-center">
-          {[
-            { num: "50+", label: "Viagens realizadas " },
-            { num: "98%", label: "Clientes satisfeitos" },
-            { num: "40+", label: "Destinos exclusivos" },
-          ].map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center">
-              <span className="text-3xl font-bold text-yellow-400">{stat.num}</span>
-              <span className="text-gray-400 text-sm mt-1">{stat.label}</span>
-            </div>
-          ))}
         </div>
       </div>
 
-      {/* Indicador de scroll */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-yellow-400/60 animate-bounce">
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
+      {/* Scroll indicator */}
+      <div className="absolute z-10 left-1/2 -translate-x-1/2 bottom-[88px] flex flex-col items-center gap-2 anim-fade-in delay-6 pointer-events-none">
+        <span className="text-white/25 text-[9px] uppercase tracking-[0.22em]">scroll</span>
+        <div className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent anim-scroll" />
+      </div>
+
+      {/* Stats bar */}
+      <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-2xl">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#c9a84c]/30 to-transparent" />
+        <div className="max-w-3xl mx-auto px-6 py-5 flex items-center">
+          {STATS.map((stat, i) => (
+            <div
+              key={stat.label}
+              className={`flex-1 text-center ${
+                i < STATS.length - 1 ? "border-r border-white/[0.08]" : ""
+              }`}
+            >
+              <p className="text-2xl font-bold text-[#c9a84c] tracking-tight">{stat.number}</p>
+              <p className="text-[#86868b] text-xs mt-0.5 tracking-wide">{stat.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
