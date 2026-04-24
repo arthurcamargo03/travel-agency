@@ -16,7 +16,7 @@ const NAV_LINKS = [
   { label: "Cruzeiros", href: "#cruzeiros" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Instagram", href: "#instagram" },
-  { label: "Contato", href: "#sobre" },
+  { label: "Contato", href: "#contato" },
 ];
 
 export default function Navbar() {
@@ -42,14 +42,14 @@ export default function Navbar() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a84c]/20 to-transparent" />
       )}
 
-      <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image
             src="/images/no_background.png"
             alt="Exclusive Dreams Agência de Viagens"
             width={180}
             height={50}
-            className="h-10 w-auto object-contain"
+            className="h-11 w-auto object-contain"
             priority
           />
         </Link>
@@ -60,7 +60,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm text-[#86868b] hover:text-[#f5f5f7] transition-colors duration-200"
+                className="text-sm text-[#a1a1a6] hover:text-[#f5f5f7] transition-colors duration-200"
               >
                 {link.label}
               </a>

@@ -9,44 +9,37 @@ const PHOTO_IDS = [
 
 export default function InstagramSection() {
   return (
-    <section id="instagram" className="bg-[#1d1d1f] py-28 px-6">
-      <div className="max-w-3xl mx-auto text-center">
-        {/* Icon */}
-        <div className="w-14 h-14 mx-auto mb-8 rounded-2xl bg-[#c9a84c]/[0.07] border border-[#c9a84c]/18 flex items-center justify-center">
-          <InstagramIcon />
+    <section id="instagram" className="bg-[#1d1d1f] py-20 px-6 border-t border-white/[0.04]">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+          <div>
+            <p className="text-[#c9a84c] text-xs font-semibold uppercase tracking-[0.3em] mb-3">
+              @exclusivedreams.viagens
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#f5f5f7] tracking-tight leading-tight">
+              Siga no Instagram.
+            </h2>
+          </div>
+          <a
+            href="https://instagram.com/exclusivedreams.viagens"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-white/[0.15] text-[#f5f5f7] hover:border-[#c9a84c]/50 hover:text-[#c9a84c] px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 self-start md:self-auto"
+          >
+            <InstagramIcon className="w-4 h-4" />
+            Seguir
+          </a>
         </div>
 
-        <p className="text-[#c9a84c] text-xs font-semibold uppercase tracking-[0.3em] mb-5">
-          @exclusivedreams.viagens
-        </p>
-
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#f5f5f7] tracking-tight leading-[0.95] mb-5">
-          Siga no Instagram.
-        </h2>
-
-        <p className="text-[#86868b] text-lg mb-10 max-w-md mx-auto leading-relaxed">
-          Destinos incríveis, dicas exclusivas e bastidores das melhores viagens.
-        </p>
-
-        <a
-          href="https://instagram.com/exclusivedreams.viagens"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 border border-white/[0.15] text-[#f5f5f7] hover:border-[#c9a84c]/50 hover:text-[#c9a84c] px-7 py-3 rounded-full text-sm font-medium transition-all duration-200"
-        >
-          <InstagramIcon className="w-4 h-4" />
-          Seguir no Instagram →
-        </a>
-
-        {/* Photo grid with hover effects */}
-        <div className="mt-14 grid grid-cols-3 sm:grid-cols-6 gap-2">
+        {/* Photo grid */}
+        <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
           {PHOTO_IDS.map((id, i) => (
             <a
               key={i}
               href="https://instagram.com/exclusivedreams.viagens"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-square rounded-xl overflow-hidden"
+              className="group relative aspect-square rounded-lg overflow-hidden"
               aria-label={`Ver post ${i + 1} no Instagram`}
             >
               <div
@@ -55,16 +48,12 @@ export default function InstagramSection() {
                   backgroundImage: `url(https://images.unsplash.com/${id}?w=240&q=70)`,
                 }}
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors duration-300 flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
                 <InstagramIcon className="w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
               </div>
             </a>
           ))}
         </div>
-
-        <p className="text-[#3a3a3c] text-xs mt-4">
-          Siga para ver mais fotos e vídeos exclusivos ↑
-        </p>
       </div>
     </section>
   );

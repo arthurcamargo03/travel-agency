@@ -1,45 +1,58 @@
+import Image from "next/image";
+
 const TESTIMONIALS = [
   {
     name: "Ana Paula S.",
     city: "Curitiba, PR",
     destination: "Maldivas",
     text: "Minha viagem para as Maldivas foi simplesmente perfeita! O Henrique cuidou de tudo, desde o translado até os passeios de barco. Não precisei me preocupar com absolutamente nada. Já estou planejando a próxima!",
-    avatar: "AP",
+    image:
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=120&q=80",
+    rating: 5,
   },
   {
     name: "Rodrigo & Camila",
     city: "São Paulo, SP",
     destination: "Paris",
     text: "Lua de mel em Paris dos sonhos! Cada hotel, cada restaurante, cada passeio foi escolhido com muito carinho. A atenção ao detalhe fez toda a diferença. Recomendo de olhos fechados para quem quer uma viagem especial.",
-    avatar: "RC",
+    image:
+      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=120&q=80",
+    rating: 5,
   },
   {
     name: "Fernanda L.",
     city: "Londrina, PR",
     destination: "Fernando de Noronha",
     text: "Nunca imaginei que Fernando de Noronha seria tão acessível! O pacote que o Henrique montou era completo e com um custo-benefício incrível. As praias são um sonho e o atendimento foi impecável do início ao fim.",
-    avatar: "FL",
+    image: "/images/Baía-dos-Porcos-em-Fernando-de-Noronha-rodamundo-1.jpg",
+    rating: 5,
   },
   {
     name: "Marcos A.",
     city: "Maringá, PR",
     destination: "Dubai",
     text: "Dubai superou todas as expectativas! O roteiro incluiu desde o safári no deserto até o almoço no topo do Burj Khalifa. O Henrique tem um olhar diferenciado para montar experiências únicas. Já indiquei para toda a família.",
-    avatar: "MA",
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=120&q=80",
+    rating: 5,
   },
   {
     name: "Juliana & Rafael",
     city: "Curitiba, PR",
     destination: "Cancún",
-    text: "Cancún foi incrível! Resort all-inclusive de primeiro nível, passeios às ruínas maias e mergulho em cenotes. Tudo organizado com antecedência para que chegássemos lá e só aproveitássemos. Nota 10!",
-    avatar: "JR",
+    text: "Cancún foi incrível! Resort all-inclusive de primeiro nível, passeios às ruínas maias e mergulho em cenotes. Tudo organizado com antecedência para que chegássemos lá e só aproveitássemos.",
+    image:
+      "https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=120&q=80",
+    rating: 4,
   },
   {
     name: "Beatriz C.",
     city: "Ponta Grossa, PR",
     destination: "Lisboa",
     text: "Minha primeira viagem internacional e não poderia ter sido melhor! Lisboa é encantadora e o roteiro incluiu as melhores atrações. O Henrique me deixou super segura durante todo o processo.",
-    avatar: "BC",
+    image:
+      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=120&q=80",
+    rating: 5,
   },
 ];
 
@@ -54,7 +67,7 @@ export default function Testimonials() {
           <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold text-[#f5f5f7] tracking-tight leading-[0.95] mb-6">
             Histórias<br />reais.
           </h2>
-          <p className="text-[#86868b] text-lg max-w-md leading-relaxed">
+          <p className="text-[#a1a1a6] text-lg max-w-md leading-relaxed">
             Cada depoimento é uma viagem que aconteceu de verdade.
           </p>
         </div>
@@ -63,14 +76,17 @@ export default function Testimonials() {
           {TESTIMONIALS.map((t) => (
             <div
               key={t.name}
-              className="bg-[#1d1d1f] border border-white/[0.06] hover:border-white/[0.1] rounded-2xl p-7 flex flex-col transition-colors duration-300"
+              className="bg-[#1d1d1f] border border-white/[0.06] hover:border-white/[0.1] rounded-xl p-7 flex flex-col transition-colors duration-300"
             >
               {/* Stars */}
-              <div className="flex gap-1 mb-5">
+              <div
+                className="flex gap-1 mb-5"
+                aria-label={`Avaliação ${t.rating} de 5 estrelas`}
+              >
                 {[...Array(5)].map((_, i) => (
                   <svg
                     key={i}
-                    className="w-4 h-4 text-[#c9a84c]"
+                    className={`w-4 h-4 ${i < t.rating ? "text-[#c9a84c]" : "text-[#c9a84c]/20"}`}
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -99,14 +115,18 @@ export default function Testimonials() {
 
               {/* Author */}
               <div className="flex items-center gap-3 pt-5 border-t border-white/[0.06]">
-                <div className="w-9 h-9 rounded-full bg-[#c9a84c]/10 border border-[#c9a84c]/20 flex items-center justify-center shrink-0">
-                  <span className="text-[#c9a84c] text-xs font-semibold">
-                    {t.avatar}
-                  </span>
+                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#c9a84c]/25 shrink-0">
+                  <Image
+                    src={t.image}
+                    alt={`Destino ${t.destination}`}
+                    fill
+                    sizes="40px"
+                    className="object-cover"
+                  />
                 </div>
                 <div>
                   <p className="text-[#f5f5f7] text-sm font-medium">{t.name}</p>
-                  <p className="text-[#6e6e73] text-xs">{t.city}</p>
+                  <p className="text-[#86868b] text-xs">{t.city}</p>
                 </div>
               </div>
             </div>

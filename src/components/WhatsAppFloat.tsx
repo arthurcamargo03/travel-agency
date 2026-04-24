@@ -14,7 +14,7 @@ export default function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => trackWhatsApp("botao_flutuante")}
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-0 bg-[#25d366] hover:bg-[#20bd5a] text-white rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.35)] hover:shadow-[0_4px_28px_rgba(37,211,102,0.5)] transition-all duration-300 group overflow-hidden"
+      className="anim-whatsapp-pulse fixed bottom-6 right-6 z-50 flex items-center gap-0 bg-[#25d366] hover:bg-[#20bd5a] text-white rounded-full transition-colors duration-300 group overflow-hidden"
       aria-label="Falar no WhatsApp"
     >
       <span className="hidden sm:block max-w-0 group-hover:max-w-xs overflow-hidden transition-all duration-300 whitespace-nowrap pl-0 group-hover:pl-5 text-sm font-semibold">

@@ -134,6 +134,15 @@ const NATIONAL = [
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
     tag: "Popular",
   },
+  {
+    name: "Gramado",
+    country: "Rio Grande do Sul",
+    description:
+      "Inverno europeu no Brasil: chocolates artesanais, arquitetura encantadora e o Natal Luz.",
+    image:
+      "https://images.unsplash.com/photo-1519817650390-64a93db51149?w=800&q=80",
+    tag: null,
+  },
 ];
 
 const CRUISES = [
@@ -190,7 +199,7 @@ interface CruiseItem {
 
 function DestinationCard({ dest }: { dest: DestinationItem }) {
   return (
-    <div className="group rounded-2xl overflow-hidden bg-[#1d1d1f] border border-white/[0.06] hover:border-[#c9a84c]/25 hover:shadow-[0_8px_40px_-8px_rgba(201,168,76,0.14)] transition-all duration-300">
+    <div className="group rounded-xl overflow-hidden bg-[#1d1d1f] border border-white/[0.06] hover:border-[#c9a84c]/25 hover:shadow-[0_8px_40px_-8px_rgba(201,168,76,0.14)] transition-all duration-300">
       <div className="relative h-52 overflow-hidden">
         <Image
           src={dest.image}
@@ -207,11 +216,11 @@ function DestinationCard({ dest }: { dest: DestinationItem }) {
         )}
       </div>
       <div className="p-5">
-        <p className="text-[#6e6e73] text-xs mb-1 tracking-wide">{dest.country}</p>
+        <p className="text-[#86868b] text-xs mb-1 tracking-wide">{dest.country}</p>
         <h3 className="text-[#f5f5f7] font-semibold text-base mb-2">
           {dest.name}
         </h3>
-        <p className="text-[#86868b] text-sm leading-relaxed mb-5">
+        <p className="text-[#a1a1a6] text-sm leading-relaxed mb-5">
           {dest.description}
         </p>
         <a
@@ -221,7 +230,7 @@ function DestinationCard({ dest }: { dest: DestinationItem }) {
           onClick={() => trackWhatsApp(`card_destino_${dest.name}`)}
           className="inline-flex items-center gap-1 text-[#c9a84c] text-sm font-medium hover:text-[#e8c96a] transition-colors duration-200 group/link"
         >
-          Saiba mais
+          Quero ir
           <span className="transition-transform duration-200 group-hover/link:translate-x-0.5">→</span>
         </a>
       </div>
@@ -231,8 +240,8 @@ function DestinationCard({ dest }: { dest: DestinationItem }) {
 
 function CruiseCard({ cruise }: { cruise: CruiseItem }) {
   return (
-    <div className="group rounded-2xl overflow-hidden bg-[#000000] border border-white/[0.06] hover:border-[#c9a84c]/25 hover:shadow-[0_8px_40px_-8px_rgba(201,168,76,0.14)] transition-all duration-300">
-      <div className="relative h-60 overflow-hidden">
+    <div className="group rounded-xl overflow-hidden bg-[#000000] border border-white/[0.06] hover:border-[#c9a84c]/25 hover:shadow-[0_8px_40px_-8px_rgba(201,168,76,0.14)] transition-all duration-300">
+      <div className="relative h-56 overflow-hidden">
         <Image
           src={cruise.image}
           alt={cruise.name}
@@ -251,11 +260,11 @@ function CruiseCard({ cruise }: { cruise: CruiseItem }) {
         </span>
       </div>
       <div className="p-6">
-        <p className="text-[#6e6e73] text-xs mb-1 tracking-wide">{cruise.company}</p>
+        <p className="text-[#86868b] text-xs mb-1 tracking-wide">{cruise.company}</p>
         <h3 className="text-[#f5f5f7] font-semibold text-lg mb-2">
           {cruise.name}
         </h3>
-        <p className="text-[#86868b] text-sm leading-relaxed mb-5">
+        <p className="text-[#a1a1a6] text-sm leading-relaxed mb-5">
           {cruise.description}
         </p>
         <a
@@ -265,7 +274,7 @@ function CruiseCard({ cruise }: { cruise: CruiseItem }) {
           onClick={() => trackWhatsApp(`card_cruzeiro_${cruise.name}`)}
           className="inline-flex items-center gap-1 text-[#c9a84c] text-sm font-medium hover:text-[#e8c96a] transition-colors duration-200 group/link"
         >
-          Saiba mais
+          Quero embarcar
           <span className="transition-transform duration-200 group-hover/link:translate-x-0.5">→</span>
         </a>
       </div>
@@ -276,7 +285,7 @@ function CruiseCard({ cruise }: { cruise: CruiseItem }) {
 function SectionDivider({ label }: { label: string }) {
   return (
     <div className="flex items-center gap-5 mb-10">
-      <p className="text-[#6e6e73] text-xs font-semibold uppercase tracking-widest whitespace-nowrap">
+      <p className="text-[#86868b] text-xs font-semibold uppercase tracking-widest whitespace-nowrap">
         {label}
       </p>
       <div className="flex-1 h-px bg-gradient-to-r from-white/[0.07] to-transparent" />
@@ -322,7 +331,7 @@ export default function Destinations() {
           </div>
 
           <div className="pt-4">
-            <p className="text-[#6e6e73] text-sm mb-5">
+            <p className="text-[#86868b] text-sm mb-5">
               Não encontrou o destino dos seus sonhos?
             </p>
             <a
@@ -363,7 +372,7 @@ export default function Destinations() {
           </div>
 
           <div className="mt-16">
-            <p className="text-[#6e6e73] text-sm mb-5">
+            <p className="text-[#86868b] text-sm mb-5">
               Quer montar um pacote completo com cruzeiro?
             </p>
             <a
