@@ -14,14 +14,14 @@ export default function InstagramSection() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
             <p className="text-[#c9a84c] text-xs font-semibold uppercase tracking-[0.3em] mb-3">
-              @exclusivedreams.viagens
+              @exclusive.dreamss
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#f5f5f7] tracking-tight leading-tight">
               Siga no Instagram.
             </h2>
           </div>
           <a
-            href="https://instagram.com/exclusivedreams.viagens"
+            href="https://www.instagram.com/exclusive.dreamss/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border border-white/[0.15] text-[#f5f5f7] hover:border-[#c9a84c]/50 hover:text-[#c9a84c] px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 self-start md:self-auto"
@@ -36,7 +36,7 @@ export default function InstagramSection() {
           {PHOTO_IDS.map((id, i) => (
             <a
               key={i}
-              href="https://instagram.com/exclusivedreams.viagens"
+              href="https://www.instagram.com/exclusive.dreamss/"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative aspect-square rounded-lg overflow-hidden"

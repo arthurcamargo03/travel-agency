@@ -15,7 +15,7 @@ const NAV_LINKS = [
   ["Instagram", "#instagram"],
 ];
 
-const INSTAGRAM_URL = "https://instagram.com/exclusivedreams.viagens";
+const INSTAGRAM_URL = "https://www.instagram.com/exclusive.dreamss/";
 const CADASTUR = "__.______.__-_";
 
 export default function Footer() {
