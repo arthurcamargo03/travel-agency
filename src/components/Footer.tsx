@@ -18,8 +18,8 @@ const NAV_LINKS = [
 ];
 
 const INSTAGRAM_URL = "https://www.instagram.com/exclusive.dreamss/";
-const CADASTUR = "__.______.__-_";
-const CNPJ = "__.___.___/____-__";
+const CADASTUR = "64.332.970/0001-77";
+const CNPJ = "64.332.970/0001-77";
 
 export default function Footer() {
   return (

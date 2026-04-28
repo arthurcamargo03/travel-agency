@@ -21,7 +21,7 @@ The site was built with performance, mobile experience, and conversion in mind.
 
 | Technology | Version |
 |---|---|
-| Next.js | 15 (App Router) |
+| Next.js | 16 (App Router) |
 | React | 19 |
 | TypeScript | 5 |
 | Tailwind CSS | 4 |
@@ -43,13 +43,19 @@ src/
     Hero.tsx
     Destinations.tsx
     Testimonials.tsx
+    About.tsx
     InstagramSection.tsx
     Footer.tsx
     WhatsAppFloat.tsx
+    CookieBanner.tsx
+    Logo3D.tsx
+lib/
+  gtag.ts
 app/
   page.tsx
   layout.tsx
   globals.css
+  privacidade/
 public/
   images/
 ```

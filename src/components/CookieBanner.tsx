@@ -1,19 +1,26 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
-const STORAGE_KEY = "exclusivedreams_cookie_consent";
+import { CONSENT_STORAGE_KEY, grantConsent } from "@/lib/gtag";
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem(STORAGE_KEY);
+    const consent = localStorage.getItem(CONSENT_STORAGE_KEY);
+    // Banner só aparece após mount pra evitar hydration mismatch (SSR não tem localStorage).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!consent) setVisible(true);
   }, []);
 
   const accept = () => {
-    localStorage.setItem(STORAGE_KEY, "accepted");
+    localStorage.setItem(CONSENT_STORAGE_KEY, "accepted");
+    grantConsent();
+    setVisible(false);
+  };
+
+  const decline = () => {
+    localStorage.setItem(CONSENT_STORAGE_KEY, "declined");
     setVisible(false);
   };
 
@@ -44,14 +51,14 @@ export default function CookieBanner() {
           onClick={accept}
           className="bg-[#c9a84c] hover:bg-[#e8c96a] text-black text-xs font-semibold px-5 py-2.5 rounded-full transition-colors duration-200"
         >
-          Entendi
+          Aceitar
         </button>
-        <Link
-          href="/privacidade"
-          className="text-[#a1a1a6] hover:text-[#f5f5f7] text-xs px-3 py-2.5 transition-colors duration-200"
+        <button
+          onClick={decline}
+          className="text-[#a1a1a6] hover:text-[#f5f5f7] text-xs px-4 py-2.5 transition-colors duration-200"
         >
-          Saiba mais
-        </Link>
+          Recusar
+        </button>
       </div>
     </div>
   );

@@ -34,7 +34,14 @@
       "Bash(curl -sL \"https://images.unsplash.com/photo-1543490786-64b9e2c56a82?w=400&q=70\" -o /tmp/h2.jpg)",
       "Bash(curl -sL \"https://images.unsplash.com/photo-1467803738586-46b7eb7b16a1?w=400&q=70\" -o /tmp/h3.jpg)",
       "Bash(curl -sL \"https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=70\" -o /tmp/h4.jpg)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Bash(sips -s format jpeg -s formatOptions 80 -Z 240 pedro-demchuk.png --out pedro-demchuk.jpg)",
+      "Bash(sips -s format jpeg -s formatOptions 80 -Z 240 neila-martos.png --out neila-martos.jpg)",
+      "Bash(sips -z 180 180 public/images/no_background.png --out app/apple-icon.png)",
+      "Bash(sips -z 512 512 public/images/no_background.png --out app/icon.png)",
+      "Bash(npm i *)",
+      "Bash(rm src/components/Logo3D.tsx)",
+      "Bash(npm uninstall *)"
     ]
   }
 }

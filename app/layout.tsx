@@ -6,7 +6,8 @@ import "./globals.css";
 
 const geist = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
 });
 
 const SITE_URL = "https://exclusivedreams.com.br";
@@ -68,17 +69,59 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${geist.variable} antialiased`}>
       <body>{children}</body>
+      <Script id="ga-consent-default" strategy="beforeInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('consent', 'default', {
+            analytics_storage: 'denied',
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            wait_for_update: 500,
+          });
+          try {
+            if (localStorage.getItem('exclusivedreams_cookie_consent') === 'accepted') {
+              gtag('consent', 'update', {
+                analytics_storage: 'granted',
+                ad_storage: 'granted',
+                ad_user_data: 'granted',
+                ad_personalization: 'granted',
+              });
+            }
+          } catch (e) {}
+        `}
+      </Script>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', '${GA_ID}');
         `}
+      </Script>
+      <Script id="ld-json-travelagency" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "TravelAgency",
+          name: "Exclusive Dreams Agência de Viagens",
+          description: SITE_DESCRIPTION,
+          url: SITE_URL,
+          telephone: "+5541987472274",
+          areaServed: { "@type": "Country", name: "Brasil" },
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Curitiba",
+            addressRegion: "PR",
+            addressCountry: "BR",
+          },
+          sameAs: ["https://www.instagram.com/exclusive.dreamss/"],
+          image: `${SITE_URL}${OG_IMAGE}`,
+          priceRange: "$$",
+        })}
       </Script>
     </html>
   );

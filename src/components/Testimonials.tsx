@@ -16,9 +16,26 @@ const TESTIMONIALS: Testimonial[] = [
     city: "Curitiba, PR",
     destination: "Whistler, Canadá",
     text: "Viagem de ski impecável! O Henrique organizou tudo: voos, hotel pé na neve, equipamento e aulas. Chegamos lá e foi só aproveitar a montanha. Recomendo de olhos fechados.",
-    image: "/images/pedro-demchuk.png",
+    image: "/images/pedro-demchuk.jpg",
     rating: 5,
     instagram: "pedrohdemchuk",
+  },
+  {
+    name: "Neila Martos Silveira",
+    city: "Curitiba, PR",
+    destination: "Belém, PA",
+    text: "Gostaria de agradecer por todo o suporte na minha viagem para Belém. A ajuda de vocês facilitou muito tudo, sempre disponíveis e atentos. Super recomendo! Além do profissionalismo, demonstraram muito cuidado, organização e comprometimento em cada detalhe, tornando a experiência tranquila e segura do início ao fim.",
+    image: "/images/neila-martos.jpg",
+    rating: 5,
+    instagram: "neilamartossilveira",
+  },
+  {
+    name: "Giovanna Benatto",
+    city: "Curitiba, PR",
+    destination: "Cuiabá, MT",
+    text: "A Exclusive Dreams me ajudou muito, sem vocês minha viagem não seria a mesma! Obrigada pelo atendimento impecável e por organizar tudo com tanto cuidado, isso com certeza fez toda a diferença na minha experiência!",
+    image: "/images/chapada-dos-veadeiros-brasilia-capa1-820x458.jpg",
+    rating: 5,
   },
   {
     name: "Ana Paula S.",
@@ -137,7 +154,7 @@ export default function Testimonials() {
                 <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#c9a84c]/25 shrink-0">
                   <Image
                     src={t.image}
-                    alt={`Destino ${t.destination}`}
+                    alt={t.instagram ? `Foto de ${t.name}` : `Destino ${t.destination}`}
                     fill
                     sizes="40px"
                     className="object-cover"
