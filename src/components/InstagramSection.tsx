@@ -1,10 +1,10 @@
 const PHOTO_IDS = [
-  "photo-1506905925346-21bda4d32df4",
-  "photo-1514282401047-d79a71a590e8",
-  "photo-1502602898657-3e91760cbb34",
-  "photo-1512453979798-5ea266f8880c",
-  "photo-1496442226666-8d4d0e62e6e9",
-  "photo-1562602833-0f4ab2fc46e3",
+  "photo-1476514525535-07fb3b4ae5f1",
+  "photo-1530789253388-582c481c54b0",
+  "photo-1469854523086-cc02fe5d8800",
+  "photo-1533105079780-92b9be482077",
+  "photo-1540959733332-eab4deabeeaf",
+  "photo-1488085061387-422e29b40080",
 ];
 
 export default function InstagramSection() {
