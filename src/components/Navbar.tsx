@@ -15,6 +15,7 @@ const NAV_LINKS = [
   { label: "Destinos", href: "#destinos" },
   { label: "Cruzeiros", href: "#cruzeiros" },
   { label: "Depoimentos", href: "#depoimentos" },
+  { label: "Sobre", href: "#sobre" },
   { label: "Instagram", href: "#instagram" },
   { label: "Contato", href: "#contato" },
 ];

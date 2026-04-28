@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { trackWhatsApp } from "@/lib/gtag";
 
 const WHATSAPP_NUMBER = "5541987472274";
@@ -12,11 +13,13 @@ const NAV_LINKS = [
   ["Destinos", "#destinos"],
   ["Cruzeiros", "#cruzeiros"],
   ["Depoimentos", "#depoimentos"],
+  ["Sobre", "#sobre"],
   ["Instagram", "#instagram"],
 ];
 
 const INSTAGRAM_URL = "https://www.instagram.com/exclusive.dreamss/";
 const CADASTUR = "__.______.__-_";
+const CNPJ = "__.___.___/____-__";
 
 export default function Footer() {
   return (
@@ -128,14 +131,21 @@ export default function Footer() {
 
       {/* Bottom */}
       <div className="border-t border-white/[0.05] py-6 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[#86868b] text-xs text-center sm:text-left">
             © {new Date().getFullYear()} Exclusive Dreams Agência de Viagens.
             Todos os direitos reservados.
           </p>
-          <p className="text-[#86868b] text-xs">
-            CADASTUR nº {CADASTUR}
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-x-5 gap-y-1 text-[#86868b] text-xs">
+            <span>CNPJ {CNPJ}</span>
+            <span>CADASTUR nº {CADASTUR}</span>
+            <Link
+              href="/privacidade"
+              className="hover:text-[#c9a84c] transition-colors duration-200"
+            >
+              Política de Privacidade
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,6 +1,25 @@
 import Image from "next/image";
 
-const TESTIMONIALS = [
+interface Testimonial {
+  name: string;
+  city: string;
+  destination: string;
+  text: string;
+  image: string;
+  rating: number;
+  instagram?: string;
+}
+
+const TESTIMONIALS: Testimonial[] = [
+  {
+    name: "Pedro Demchuk",
+    city: "Curitiba, PR",
+    destination: "Whistler, Canadá",
+    text: "Viagem de ski impecável! O Henrique organizou tudo: voos, hotel pé na neve, equipamento e aulas. Chegamos lá e foi só aproveitar a montanha. Recomendo de olhos fechados.",
+    image: "/images/pedro-demchuk.png",
+    rating: 5,
+    instagram: "pedrohdemchuk",
+  },
   {
     name: "Ana Paula S.",
     city: "Curitiba, PR",
@@ -12,7 +31,7 @@ const TESTIMONIALS = [
   },
   {
     name: "Rodrigo & Camila",
-    city: "São Paulo, SP",
+    city: "Curitiba, PR",
     destination: "Paris",
     text: "Lua de mel em Paris dos sonhos! Cada hotel, cada restaurante, cada passeio foi escolhido com muito carinho. A atenção ao detalhe fez toda a diferença. Recomendo de olhos fechados para quem quer uma viagem especial.",
     image:
@@ -21,7 +40,7 @@ const TESTIMONIALS = [
   },
   {
     name: "Fernanda L.",
-    city: "Londrina, PR",
+    city: "Curitiba, PR",
     destination: "Fernando de Noronha",
     text: "Nunca imaginei que Fernando de Noronha seria tão acessível! O pacote que o Henrique montou era completo e com um custo-benefício incrível. As praias são um sonho e o atendimento foi impecável do início ao fim.",
     image: "/images/Baía-dos-Porcos-em-Fernando-de-Noronha-rodamundo-1.jpg",
@@ -29,7 +48,7 @@ const TESTIMONIALS = [
   },
   {
     name: "Marcos A.",
-    city: "Maringá, PR",
+    city: "Curitiba, PR",
     destination: "Dubai",
     text: "Dubai superou todas as expectativas! O roteiro incluiu desde o safári no deserto até o almoço no topo do Burj Khalifa. O Henrique tem um olhar diferenciado para montar experiências únicas. Já indiquei para toda a família.",
     image:
@@ -43,11 +62,11 @@ const TESTIMONIALS = [
     text: "Cancún foi incrível! Resort all-inclusive de primeiro nível, passeios às ruínas maias e mergulho em cenotes. Tudo organizado com antecedência para que chegássemos lá e só aproveitássemos.",
     image:
       "https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=120&q=80",
-    rating: 4,
+    rating: 5,
   },
   {
     name: "Beatriz C.",
-    city: "Ponta Grossa, PR",
+    city: "Curitiba, PR",
     destination: "Lisboa",
     text: "Minha primeira viagem internacional e não poderia ter sido melhor! Lisboa é encantadora e o roteiro incluiu as melhores atrações. O Henrique me deixou super segura durante todo o processo.",
     image:
@@ -124,9 +143,20 @@ export default function Testimonials() {
                     className="object-cover"
                   />
                 </div>
-                <div>
-                  <p className="text-[#f5f5f7] text-sm font-medium">{t.name}</p>
-                  <p className="text-[#86868b] text-xs">{t.city}</p>
+                <div className="min-w-0">
+                  <p className="text-[#f5f5f7] text-sm font-medium truncate">{t.name}</p>
+                  {t.instagram ? (
+                    <a
+                      href={`https://www.instagram.com/${t.instagram}/`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#c9a84c] hover:text-[#e8c96a] text-xs transition-colors duration-200 inline-flex items-center gap-1"
+                    >
+                      @{t.instagram}
+                    </a>
+                  ) : (
+                    <p className="text-[#86868b] text-xs">{t.city}</p>
+                  )}
                 </div>
               </div>
             </div>
