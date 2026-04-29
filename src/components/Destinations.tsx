@@ -139,8 +139,7 @@ const NATIONAL = [
     country: "Rio Grande do Sul",
     description:
       "Inverno europeu no Brasil: chocolates artesanais, arquitetura encantadora e o Natal Luz.",
-    image:
-      "https://images.unsplash.com/photo-1519817650390-64a93db51149?w=800&q=80",
+    image: "/images/creditos-Cleiton-Thiele-1241-Copia-scaled.jpg",
     tag: null,
   },
 ];
