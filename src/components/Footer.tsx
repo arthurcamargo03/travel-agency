@@ -53,11 +53,11 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <Image
-            src="/images/no_background.png"
+            src="/images/exclusive-dreams-logo-4k.png"
             alt="Exclusive Dreams Agência de Viagens"
-            width={140}
-            height={40}
-            className="h-9 w-auto object-contain mb-5 opacity-80"
+            width={460}
+            height={180}
+            className="h-14 w-auto object-contain mb-5 opacity-90"
           />
           <p className="text-[#86868b] text-sm leading-relaxed max-w-xs mb-5">
             Transformamos sonhos em experiências inesquecíveis. Atendimento

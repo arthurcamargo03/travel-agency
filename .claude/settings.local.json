@@ -41,7 +41,12 @@
       "Bash(sips -z 512 512 public/images/no_background.png --out app/icon.png)",
       "Bash(npm i *)",
       "Bash(rm src/components/Logo3D.tsx)",
-      "Bash(npm uninstall *)"
+      "Bash(npm uninstall *)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/arthurcamargo/Documents/agencia-viagens/public/images/exclusive-dreams-icon.png /Users/arthurcamargo/Documents/agencia-viagens/public/images/exclusive-dreams-logo-4k.png)",
+      "Bash(python3 -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "Bash(pip3 install *)",
+      "Bash(python3 -c \"from PIL import Image; print\\('ok'\\)\")",
+      "Bash(python3 *)"
     ]
   }
 }

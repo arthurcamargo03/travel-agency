@@ -43,14 +43,14 @@ export default function Navbar() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a84c]/20 to-transparent" />
       )}
 
-      <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/no_background.png"
+            src="/images/exclusive-dreams-logo-4k.png"
             alt="Exclusive Dreams Agência de Viagens"
-            width={180}
-            height={50}
-            className="h-11 w-auto object-contain"
+            width={460}
+            height={180}
+            className="h-12 sm:h-14 w-auto object-contain"
             priority
           />
         </Link>

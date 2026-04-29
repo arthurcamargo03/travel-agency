@@ -14,14 +14,14 @@ export default function PrivacidadePage() {
     <main className="bg-black min-h-screen">
       {/* Header bar */}
       <header className="border-b border-white/[0.06]">
-        <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-3xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/no_background.png"
+              src="/images/exclusive-dreams-logo-4k.png"
               alt="Exclusive Dreams"
-              width={140}
-              height={40}
-              className="h-9 w-auto object-contain"
+              width={460}
+              height={180}
+              className="h-12 w-auto object-contain"
               priority
             />
           </Link>

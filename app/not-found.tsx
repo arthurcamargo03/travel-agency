@@ -16,11 +16,11 @@ export default function NotFound() {
     <main className="min-h-screen bg-black flex items-center justify-center px-6">
       <div className="text-center max-w-md">
         <Image
-          src="/images/no_background.png"
+          src="/images/exclusive-dreams-logo-4k.png"
           alt="Exclusive Dreams"
-          width={120}
-          height={36}
-          className="h-9 w-auto object-contain mx-auto mb-10 opacity-90"
+          width={460}
+          height={180}
+          className="h-12 sm:h-14 w-auto object-contain mx-auto mb-10 opacity-95"
         />
         <p className="text-[#c9a84c] text-xs font-semibold uppercase tracking-[0.3em] mb-5">
           Erro 404

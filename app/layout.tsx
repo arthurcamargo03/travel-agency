@@ -14,7 +14,7 @@ const SITE_URL = "https://exclusivedreams.com.br";
 const SITE_TITLE = "Exclusive Dreams | Agência de Viagens";
 const SITE_DESCRIPTION =
   "Transforme seus sonhos em memórias inesquecíveis. Pacotes exclusivos para os destinos mais deslumbrantes do mundo. Atendimento personalizado do início ao fim.";
-const OG_IMAGE = "/images/no_background.png";
+const OG_IMAGE = "/images/exclusive-dreams-logo-4k.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
